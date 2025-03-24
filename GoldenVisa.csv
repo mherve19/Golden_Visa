@@ -1,6 +1,7 @@
-﻿Pays,LAT,LONG,VISAattribues,CoutVISA,FinProgramme
-Malte,35.8997,14.5146,20000,690 000,non
-Espagne,40.4637,-3.7492,6200,500 000,oui
+Pays,Latitude,Longitude,Nombre_visas_attribués,CoutVISA,Programme_actif
+Malte,35.8997,14.5146,20000,690000,non
+Espagne,40.4637,-3.7492,6200,500000,oui
 Grèce,39.0742,21.8243,10105,250000,non
 Portugal,39.3999,-8.2245,10000,350000,Fin
 Chypre,35.1264,33.4299,7000,300000,Fin
+
