@@ -20,21 +20,21 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <script>
-        // Créer la carte et la centrer autour de l'Europe
-        var map = L.map('map').setView([39.5, 15], 4); // Position centrée sur l'Europe
+        
+        var map = L.map('map').setView([39.5, 15], 4); 
 
-        // Ajouter la couche de tuiles OpenStreetMap
+    
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Charger les données CSV depuis GitHub
+        
         d3.csv("https://raw.githubusercontent.com/mherve19/Golden_Visa/refs/heads/main/GoldenVisa.csv")
             .then(function(data) {
-                // Afficher les données dans la console pour vérifier la structure
+                
                 console.log(data);
 
-                // Convertir les valeurs de latitude, longitude, et nombre de visas en format approprié
+                
                 data.forEach(function(d) {
                     d.Latitude = parseFloat(d.Latitude);
                     d.Longitude = parseFloat(d.Longitude);
@@ -42,16 +42,16 @@
                     d.CoutVISA = parseInt(d.CoutVISA.replace(/\s+/g, ''));
                 });
 
-                // Créer un cercle pour chaque pays
+               
                 data.forEach(function(d) {
                     var circle = L.circle([d.Latitude, d.Longitude], {
                         color: 'blue',
                         fillColor: '#30f',
                         fillOpacity: 0.5,
-                        radius: d.Nombre_visas_attribués * 15 // Augmenter la taille des cercles de manière plus importante
+                        radius: d.Nombre_visas_attribués * 15 
                     }).addTo(map);
 
-                    // Ajouter un popup avec les informations sur chaque pays
+                    
                     circle.bindPopup("<b>" + d.Pays + "</b><br>" +
                                      "Nombre de Golden Visas attribués : " + d.Nombre_visas_attribués + "<br>" +
                                      "Coût minimum : " + d.CoutVISA + " EUR<br>" +
