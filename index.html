@@ -23,12 +23,12 @@
         
         var map = L.map('map').setView([39.5, 15], 4); 
 
-    
+        
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        
+       
         d3.csv("https://raw.githubusercontent.com/mherve19/Golden_Visa/refs/heads/main/GoldenVisa.csv")
             .then(function(data) {
                 
@@ -42,7 +42,7 @@
                     d.CoutVISA = parseInt(d.CoutVISA.replace(/\s+/g, ''));
                 });
 
-               
+                
                 data.forEach(function(d) {
                     var circle = L.circle([d.Latitude, d.Longitude], {
                         color: 'blue',
@@ -51,7 +51,7 @@
                         radius: d.Nombre_visas_attribués * 15 
                     }).addTo(map);
 
-                    
+                   
                     circle.bindPopup("<b>" + d.Pays + "</b><br>" +
                                      "Nombre de Golden Visas attribués : " + d.Nombre_visas_attribués + "<br>" +
                                      "Coût minimum : " + d.CoutVISA + " EUR<br>" +
